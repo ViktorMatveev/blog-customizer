@@ -28,7 +28,7 @@ export const ArticleParamsForm = ({
 	articleState,
 	setArticleState,
 }: ArticleParamsFormProps) => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [fontFamily, setFontFamily] = useState(articleState.fontFamilyOption);
 	const [fontSize, setFontSize] = useState(articleState.fontSizeOption);
 	const [fontColor, setFontColor] = useState(articleState.fontColor);
@@ -39,11 +39,11 @@ export const ArticleParamsForm = ({
 
 	const stylesContainer = clsx({
 		[styles.container]: true,
-		[styles.container_open]: isOpen,
+		[styles.container_open]: isMenuOpen,
 	});
 
 	const handleOpenForm = () => {
-		setIsOpen(!isOpen);
+		setIsMenuOpen(!isMenuOpen);
 	};
 	const handleSubmitForm = (evt: React.FormEvent) => {
 		evt.preventDefault();
@@ -76,14 +76,14 @@ export const ArticleParamsForm = ({
 	const rootRef = useRef<HTMLDivElement>(null);
 
 	useOverlayClickClose({
-		isOpen: isOpen,
-		onClose: () => setIsOpen(false),
+		isOpen: isMenuOpen,
+		onClose: () => setIsMenuOpen(false),
 		overlayRef: rootRef,
 	});
 
 	return (
 		<div ref={rootRef}>
-			<ArrowButton isOpen={isOpen} onClick={handleOpenForm} />
+			<ArrowButton isOpen={isMenuOpen} onClick={handleOpenForm} />
 			<aside className={stylesContainer}>
 				<form
 					className={styles.form}
