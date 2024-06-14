@@ -13,7 +13,9 @@
 	top: 50%;
 	right: 6px;
 	margin-top: -12px;
-	transition: transform 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+	transition:
+		transform 0.2s ease-in-out,
+		margin-top 0.2s ease-in-out;
 }
 
 .placeholder {
